@@ -1,11 +1,15 @@
 {% extends 'admin/change_form.html' %}
 {% block content %}{{ block.super }}
+    <div id="admin_vue">
 
-{% for template, field, position in adminform.model_admin.baton_form_includes %}
-    <template id="template-{{ field }}" data-position="{{ position }}">
-        <div id='template-{{ field }}-container' class="baton-form-include baton-form-include-{{ position }}">
-            {% include template %}
-        </div>
-    </template>
-{% endfor %}
+        {% for template, field, position in adminform.model_admin.baton_form_includes %}
+            <template id="template-{{ field }}" data-position="{{ position }}">
+                <div id='template-{{ field }}-container' class="baton-form-include baton-form-include-{{ position }}">
+                    {% include template %}
+                </div>
+            </template>
+        {% endfor %}
+
+    </div>
+
 {% endblock %}
